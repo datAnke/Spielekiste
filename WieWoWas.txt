@@ -30,7 +30,7 @@ git repository erstellen
       git status
       git add .    Dateien hinzufügen
       git commit -m "Kommentar"
-      git remote add origin https://github.com/datAnke/Spielekiste.git
+      #git remote add origin https://github.com/datAnke/Spielekiste.git
       git push -u origin master
 
 Tabellen und dynamische Seiten erstellen auf der console
@@ -48,3 +48,37 @@ Tabellen und dynamische Seiten erstellen auf der console
               class Box < ApplicationRecord
                   has_many :games
               end
+
+
+Suchen nach den Spielen auf https://www.boardgamegeek.com/
+      controller erstellen auf der console:
+      rails generate controller Boardgames find_games
+
+
+      /gemfile anpassen
+      gem 'faraday'
+
+      auf der console: bundle install
+
+
+      /app/controller/boardbames modifiziere
+      def find_games
+        response = Faraday.get 'https://www.boardgamegeek.com/xmlapi2/search?type=boardgame&query=siedler'
+        render plain: response.body
+      end
+
+      auf der console: rake db:migrate
+
+Heroku
+
+Vorbereitung
+  gemfile ergänzen
+
+    group :development do
+      gem 'sqlite3'
+    end
+
+    group :production do
+      gem 'pg'
+      gem '12factor'
+    end
