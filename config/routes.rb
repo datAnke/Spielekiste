@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'boardgames/find_games'
+
   resources :games
   resources :boxes
   get 'statics/home'
