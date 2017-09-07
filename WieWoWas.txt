@@ -1,0 +1,50 @@
+neues Projekt anlegen auf der console
+  rails new Spielekiste
+
+statische Seiten erstellen auf der console
+  rails generate controller statics home about
+
+Route-Pfand anpassen
+  /config/routes.rb
+  root 'statics#home'
+
+  bootstrap installieren per gem-file
+    gem-file modifizieren
+    gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+    console:
+      bundle install
+      rails generate bootstrap:install static
+
+git repository erstellen
+  auf https://github.com  new repository erstellen
+  console:
+    git init
+    git status
+    git add .    Dateien hinzufügen
+    git commit -m "Kommentar"
+    git remote add origin https://github.com/datAnke/Spielekiste.git
+    git push -u origin master
+
+  aktualisieren
+    console:
+      git status
+      git add .    Dateien hinzufügen
+      git commit -m "Kommentar"
+      git remote add origin https://github.com/datAnke/Spielekiste.git
+      git push -u origin master
+
+Tabellen und dynamische Seiten erstellen auf der console
+    rails generate scaffold box name place
+    rails generate scaffold game title url box:references
+    rails db:migrate
+
+    1:n Beziehung erstellen ein box hat viele games, aber jedes game hat nur eine box
+        /app/models/game.rb
+              class Game < ApplicationRecord
+                  belongs_to :box
+              end
+
+        /app/models/box.rb
+              class Box < ApplicationRecord
+                  has_many :games
+              end
