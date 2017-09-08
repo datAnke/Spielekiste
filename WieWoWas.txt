@@ -80,5 +80,13 @@ Vorbereitung
 
     group :production do
       gem 'pg'
-      gem '12factor'
+      #gem '12factor'
     end
+
+    
+auf der console:
+heroku login
+heroku create
+git push heroku master
+heroku run rake db:migrate
+heroku open 
