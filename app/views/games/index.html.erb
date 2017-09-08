@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Games</h1>
+<% bla= @games.find(1)  %>
 
-<table>
+<%= bla.box_id %>
+
+<table  >
   <thead>
     <tr>
       <th>Title</th>
       <th>Url</th>
       <th>Box</th>
-      <th colspan="3"></th>
+      <th>BoxName</th>
+
+      <th colspan="7"></th>
     </tr>
   </thead>
 
@@ -17,7 +22,8 @@
       <tr>
         <td><%= game.title %></td>
         <td><%= game.url %></td>
-        <td><%= game.box %></td>
+        <td><%= game.box_id %></td>
+        <td>bla</td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>

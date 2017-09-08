@@ -60,5 +60,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # selbst intalliert
+#Bootstrap
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+#Auslesen darstellen der Daten von www.boardgamegeek.com
 gem 'faraday'
+#Userverwaltung -- Login
+gem 'devise'

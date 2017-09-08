@@ -3,6 +3,8 @@ class BoxesController < ApplicationController
 
   # GET /boxes
   # GET /boxes.json
+  
+
   def index
     @boxes = Box.all
   end
@@ -65,6 +67,7 @@ class BoxesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_box
       @box = Box.find(params[:id])
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

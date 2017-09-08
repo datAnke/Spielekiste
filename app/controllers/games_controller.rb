@@ -71,4 +71,9 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:title, :url, :box_id)
     end
+
+     # Use callbacks to share common setup or constraints between actions.
+    def set_box
+      @box = Box.find(params[:id])
+    end
 end
