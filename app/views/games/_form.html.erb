@@ -11,10 +11,14 @@
     </div>
   <% end %>
 
+
  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :game_title %>
   </div>
+
+
+
 
   <div class="field">
     <%= form.label :url %>
@@ -25,8 +29,10 @@
 
 
   <div class="field">
-    <%= form.label :box_id %> Box ID
-    <%= form.text_field :box_id, id: :game_box_id %>
+    <%= form.label :box_id %> 
+    <%= form.collection_select(:box_id, Box.all, :id, :name) %>
+  <!--   <%= options_from_collection_for_select(Box.all, :id, :name) %>
+   <%= form.text_field :box_id, id: :game_box_id %>-->
   </div>
 
   <div class="actions">
