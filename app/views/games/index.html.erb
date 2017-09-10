@@ -21,7 +21,7 @@
         <td><%= game.title %></td>
         <td><%= game.url %></td>
         <td><%= game.box_id %></td>
-        <td><%= game.box.name %></td>
+        <td><%= link_to game.box.name, box_path(game.box)%></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
